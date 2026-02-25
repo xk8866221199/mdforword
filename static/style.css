@@ -563,6 +563,13 @@ body {
     font-size: 0.92rem;
     line-height: 1.7;
     color: var(--text-primary);
+    user-select: text;
+    -webkit-user-select: text;
+}
+
+.preview-content * {
+    user-select: text;
+    -webkit-user-select: text;
 }
 
 .preview-content::-webkit-scrollbar {

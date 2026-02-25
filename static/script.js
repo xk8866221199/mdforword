@@ -375,6 +375,26 @@ btnClear.addEventListener('click', () => {
     showToast('已清空', 'info');
 });
 
+// 全选预览按钮
+const btnSelectAllPreview = document.getElementById('btnSelectAllPreview');
+if (btnSelectAllPreview) {
+    btnSelectAllPreview.addEventListener('click', () => {
+        const previewContentWrapper = document.getElementById('previewContent');
+        if (!previewContentWrapper || !previewContentWrapper.textContent.trim()) {
+            showToast('预览区为空', 'info');
+            return;
+        }
+
+        const selection = window.getSelection();
+        const range = document.createRange();
+        range.selectNodeContents(previewContentWrapper);
+        selection.removeAllRanges();
+        selection.addRange(range);
+
+        showToast('预览内容已全选', 'success');
+    });
+}
+
 // 示例按钮
 btnSample.addEventListener('click', () => {
     markdownInput.value = SAMPLE_MARKDOWN;
